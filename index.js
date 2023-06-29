@@ -5,6 +5,7 @@ import session from "express-session";
 import passport from "passport";
 
 import authRoutes from "./routes/auth.js";
+import mobileRoutes from "./routes/mobile.js";
 import productRoutes from "./routes/product.js";
 
 import "./passport.js";
@@ -31,6 +32,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use("/api/mobile", mobileRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
 
