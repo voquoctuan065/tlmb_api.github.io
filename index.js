@@ -6,7 +6,7 @@ import passport from "passport";
 
 import authRoutes from "./routes/auth.js";
 import mobileRoutes from "./routes/mobile.js";
-import productRoutes from "./routes/product.js";
+import tabletRoutes from "./routes/tablet.js";
 
 import "./passport.js";
 
@@ -35,8 +35,7 @@ app.use(passport.session());
 
 app.use("/api/mobile", mobileRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/product", productRoutes);
-
+app.use("/api/tablet", tabletRoutes);
 app.listen(8800, () => {
   console.log("Connected!");
 });

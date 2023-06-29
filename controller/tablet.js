@@ -1,23 +1,23 @@
 import { db } from "../db.js";
 
-export const getMobile = (req, res) => {
-  const q = "select * from mobiles";
+export const getTablet = (req, res) => {
+  const q = "select * from tablets";
   db.query(q, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });
 };
 
-export const getMobileById = (req, res) => {
-  const q = "select * from mobiles where id = ?";
+export const getTabletById = (req, res) => {
+  const q = "select * from tablets where id = ?";
   db.query(q, [req.params.id], (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
   });
 };
 
-export const getMobileBest = (req, res) => {
-  const q = "select * from mobiles where levels = 1";
+export const getTabletBest = (req, res) => {
+  const q = "select * from tablets where levels = 1";
   db.query(q, (err, data) => {
     if (err) return res.json(err);
     return res.json(data);
