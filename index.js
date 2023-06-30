@@ -1,14 +1,13 @@
+import "./passport.js";
 import cors from "cors";
 import express from "express";
-import cookieParser from "cookie-parser";
-import session from "express-session";
 import passport from "passport";
+import session from "express-session";
+import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.js";
-import mobileRoutes from "./routes/mobile.js";
-import tabletRoutes from "./routes/tablet.js";
-
-import "./passport.js";
+import searchRoutes from "./routes/search.js";
+import productRoutes from "./routes/product.js";
 
 const app = express();
 const corsOrigin = {
@@ -33,9 +32,10 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/mobile", mobileRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/tablet", tabletRoutes);
+app.use("/api/product", productRoutes);
+app.use("/api/search", searchRoutes);
+
 app.listen(8800, () => {
   console.log("Connected!");
 });

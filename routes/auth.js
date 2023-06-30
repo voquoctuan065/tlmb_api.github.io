@@ -4,7 +4,7 @@ import { login, logout, register } from "../controller/auth.js";
 
 const router = express.Router();
 
-router.get("/login/success", (req, res) => {
+router.get("/success", (req, res) => {
   if (req.user) {
     res.status(200).json({
       success: true,
@@ -15,7 +15,7 @@ router.get("/login/success", (req, res) => {
   }
 });
 
-router.get("/login/failed", (req, res) => {
+router.get("/failed", (req, res) => {
   res.status(401).json({
     success: false,
     message: "failure ",
@@ -34,7 +34,7 @@ router.get(
   "/google/callback",
   passport.authenticate("google", {
     successRedirect: "http://localhost:3000",
-    failureRedirect: "/login/failed",
+    failureRedirect: "/failed",
   })
 );
 
