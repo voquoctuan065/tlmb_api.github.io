@@ -7,3 +7,11 @@ export const getAllProduct = (req, res) => {
     return res.json(data);
   });
 };
+
+export const getProductById = (req, res) => {
+  const q = "select * from products where productId = ?";
+  db.query(q, [req.params.id], (err, data) => {
+    if (err) return res.status(404).json("Không tìm thấy sản phẩm");
+    return res.status(200).json(data);
+  });
+};
