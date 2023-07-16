@@ -6,6 +6,7 @@ import session from "express-session";
 import cookieParser from "cookie-parser";
 
 import authRoutes from "./routes/auth.js";
+import filterRoutes from "./routes/filter.js";
 import productRoutes from "./routes/product.js";
 
 const app = express();
@@ -33,6 +34,7 @@ app.use(passport.session());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/filter", filterRoutes);
 
 app.listen(8800, () => {
   console.log("Connected!");
